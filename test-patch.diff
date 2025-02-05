@@ -1,0 +1,86 @@
+diff --git a/src/main.c b/src/main.c
+index 94e72a2..b1c2d3e 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ int main(int argc, char *argv[]) {
+-    printf("Hello, world!\n");
+-    return 0;
++    printf("Hello, universe!\n");
++    // Changed return value for testing error handling
++    return 1;
+ }
+diff --git a/src/util.c b/src/util.c
+index a1b2c3d..e4f5g6h 100644
+--- a/src/util.c
++++ b/src/util.c
+@@ void do_something() {
+-    int result = compute();
+-    if(result < 0) {
+-        handle_error(result);
+-    }
++    int result = compute();
++    if(result < 0) {
++        log_error("compute() failed", result);
++        handle_error(result);
++    } else {
++        log_info("compute() succeeded");
++    }
+ }
+diff --git a/docs/readme.md b/docs/readme.md
+new file mode 100644
+index 0000000..df14f8c
+--- /dev/null
++++ b/docs/readme.md
+@@
++# Project Documentation
++
++This project is designed to demonstrate a substantial git diff.
++
++## Features
++- Feature one
++- Feature two
++  - Improved error handling in main.c
++  - Enhanced logging in util.c
++
++## Installation
++To install the project, run:
++
++```bash
++./install.sh
++```
++
++## Usage
++Execute the binary with:
++
++```bash
++./run_project
++```
+diff --git a/old/config.ini b/old/config.ini
+deleted file mode 100644
+index e69de29..0000000
+--- a/old/config.ini
++++ /dev/null
+@@
+-# This configuration file is deprecated.
+-# Please refer to new_config.ini for updated settings.
+-
+-[General]
+-key=value
+diff --git a/src/old_module.c b/src/new_module.c
+similarity index 95%
+rename from src/old_module.c
+rename to src/new_module.c
+index 123abcd..456efgh 100644
+--- a/src/old_module.c
++++ b/src/new_module.c
+@@
+-// Old module code
+-void old_function() {
+-    // implementation
+-}
++// New module code: refactored for clarity and performance
++void new_function() {
++    // new implementation
++}
+diff --git a/images/logo.png b/images/logo.png
+Binary files a/images/logo.png and b/images/logo.png differ
